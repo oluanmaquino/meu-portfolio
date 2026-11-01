@@ -173,6 +173,7 @@
     title.textContent = item.label;
     caption.textContent = item.caption || '';
     position.textContent = (currentIndex + 1) + ' / ' + filteredImages.length;
+    $('#lightbox-original').href = item.src;
   }
   function openLightbox() {
     if (!filteredImages.length) return;
@@ -245,6 +246,7 @@
     image.alt = current.alt || ('Captura do projeto ' + openProjectData.name);
     $('#detail-image-label').textContent = current.label + (current.caption ? ' · ' + current.caption : '');
     $('#detail-counter').textContent = (detailIndex + 1) + ' / ' + images.length;
+    $('#detail-original').href = current.src;
     Array.from(detailThumbs.children).forEach(function (child, i) {
       child.setAttribute('aria-pressed', String(i === detailIndex));
     });
@@ -259,9 +261,7 @@
     const tags = $('#detail-tags');
     tags.replaceChildren();
     (project.technologies || []).forEach(function (tech) {
-      const span = document.createElement('span');
-      span.textContent = tech;
-      tags.append(span);
+      tags.append(window.PortfolioTech ? window.PortfolioTech.chip(tech) : document.createTextNode(tech));
     });
     const features = $('#detail-features');
     features.replaceChildren();
@@ -327,13 +327,13 @@
     matches.forEach(function (project) {
       const card = document.createElement('article');
       card.className = 'future-card';
-      const first = Array.isArray(project.images) && project.images[0];
+      const first = Array.isArray(project.images) && (project.images.find(item=>item.src===project.coverImage)||project.images[0]);
       if (first && first.src) {
         const image = document.createElement('img');
         image.src = first.src;
         image.alt = first.alt || ('Captura do sistema ' + project.name);
         image.loading = 'lazy';
-        card.append(image);
+        image.style.setProperty('object-fit',project.coverFit==='cover'?'cover':'contain','important');image.style.aspectRatio=project.coverRatio&&project.coverRatio!=='original'?project.coverRatio:'auto';image.style.objectPosition=project.coverPosition==='top'?'top center':'center';card.append(image);
       }
       const content = document.createElement('div');
       content.className = 'future-card-content';
@@ -347,9 +347,7 @@
       const technologies = document.createElement('div');
       technologies.className = 'project-mini-tech';
       (project.technologies || []).forEach(function (tech) {
-        const span = document.createElement('span');
-        span.textContent = tech;
-        technologies.append(span);
+        technologies.append(window.PortfolioTech ? window.PortfolioTech.chip(tech) : document.createTextNode(tech));
       });
       const actions = document.createElement('div');
       actions.className = 'future-card-actions';
@@ -367,9 +365,76 @@
   }
   search.addEventListener('input', function () { renderOthers(search.value); });
 
+
+  // Destaque e galeria gerados a partir do mesmo catálogo usado pelos cards.
+  // O editor pode mudar o projeto principal sem edição no HTML.
+  function updateFeatured(project, projects) {
+    if (!project) return;
+    const article = $('#featured-showcase');
+    const photo = $('.showcase-image img', article);
+    const first = (project.images || []).find(item=>item.src===project.coverImage) || (project.images || [])[0];
+    photo.style.setProperty('object-fit',project.coverFit==='cover' ? 'cover' : 'contain','important');
+    photo.style.aspectRatio=project.coverRatio&&project.coverRatio!=='original'?project.coverRatio:'auto';
+    photo.style.objectPosition = project.coverPosition==='top' ? 'top center' : 'center';
+    if (first && first.src) { photo.src = first.src; photo.alt = first.alt || 'Captura de ' + project.name; photo.hidden = false; }
+    else photo.hidden = true;
+    const browserTitle = $('.showcase-browser-bar > span', article);
+    browserTitle.textContent = project.name + ' · ' + (project.category || 'Projeto');
+    const logo = $('.project-logo', article);
+    logo.replaceChildren();
+    if (project.icon && /^assets\/img\/[a-zA-Z0-9_./-]+$/.test(project.icon) && !project.icon.includes('..')) {
+      const iconImage=document.createElement('img');
+      iconImage.src=project.icon; iconImage.alt='Ícone de '+project.name;
+      iconImage.width=44;iconImage.height=44;
+      logo.append(iconImage);
+    } else {
+      const abbr = document.createElement('b');
+      abbr.textContent = (project.abbreviation || project.name.slice(0,2)).slice(0,3);
+      logo.append(abbr);
+    }
+    $('.status-label',article).textContent = [project.version ? 'V' + project.version : '',project.status || 'Projeto'].filter(Boolean).join(' · ').toUpperCase();
+    $('.showcase-info .micro-label',article).textContent = (project.eyebrow || project.category || 'PROJETO').toUpperCase();
+    const heading = $('.showcase-info h3',article);
+    heading.replaceChildren();
+    const parts=(project.name || 'Projeto').split(' ');
+    const nameA=document.createTextNode(parts.shift()+' ');
+    const color=document.createElement('span');color.textContent=parts.join(' ') || '';
+    heading.append(nameA,color);
+    $('.showcase-slogan',article).textContent = project.tagline || project.summary || '';
+    $('.showcase-desc',article).textContent = project.description || project.summary || '';
+    const tags=$('.showcase-info .tag-row',article);tags.replaceChildren();
+    (project.technologies||[]).forEach(function(tech){tags.append(window.PortfolioTech ? window.PortfolioTech.chip(tech) : document.createTextNode(tech))});
+    const actions=$('.showcase-actions',article);
+    actions.replaceChildren();
+    const galleryLink=document.createElement('a');galleryLink.className='button button-primary';
+    galleryLink.href='#galeria';galleryLink.textContent='Explorar as telas ↗';actions.append(galleryLink);
+    const visit=project.urls && trustedUrl(project.urls.live);
+    if(visit){addExternalButton(actions,visit,'Acessar projeto ↗',false)}
+    else {const privateNote=document.createElement('span');privateNote.className='project-private';privateNote.textContent='Projeto sem demonstração pública';actions.append(privateNote)}
+    const featureRoot=$('#featured-features');featureRoot.replaceChildren();
+    (project.features||[]).slice(0,6).forEach(function(feature,i){
+      const card=document.createElement('div');card.className='feature-card';
+      const icon=document.createElement('span');icon.className='feature-icon';icon.append(svg(['layers','chart','check','database','monitor','code'][i%6]));
+      const h=document.createElement('h4');h.textContent=feature.title||'';
+      const p=document.createElement('p');p.textContent=feature.description||'';
+      card.append(icon,h,p);featureRoot.append(card);
+    });
+    featureRoot.hidden=!(project.features||[]).length;
+    const galleryTitle=$('#galeria .gallery-heading h3');galleryTitle.replaceChildren();
+    galleryTitle.append(document.createTextNode('Conheça o projeto '));
+    const nameSpan=document.createElement('span');nameSpan.textContent='por dentro.';galleryTitle.append(nameSpan);
+    $('#galeria .section-kicker span').textContent=(project.name + (project.version?' · V'+project.version:'')).toUpperCase();
+    $('#galeria .gallery-heading p').textContent=(project.images||[]).length+' capturas reais selecionadas para a galeria.';
+    $('#lightbox').setAttribute('aria-label','Galeria ampliada de '+project.name);
+    const codeRow=$('.code-line:nth-child(6) code');
+    if (codeRow) codeRow.textContent='  projetos: '+JSON.stringify(projects.map(function(p){return p.name;}))+',';
+  }
+
   // Catálogo HTTP/HTTPS com cópia local para duplo clique no arquivo HTML.
-  window.SiteProjects.load().then(function (projects) {
-    const mainProject = projects.find(function (project) { return project.id === 'gestao-obras'; }) || projects[0];
+  window.SiteProjects.loadCatalog().then(function (catalog) {
+    const projects = catalog.projects || [];
+    const mainProject = projects.find(function (project) { return project.id === catalog.featuredId; }) || projects[0];
+    updateFeatured(mainProject,projects);
     allImages = Array.isArray(mainProject.images) ? mainProject.images : [];
     applyFilter('all');
     $('#project-total').textContent = String(projects.length).padStart(2, '0') + (projects.length === 1 ? ' PROJETO NO PORTFÓLIO' : ' PROJETOS NO PORTFÓLIO');

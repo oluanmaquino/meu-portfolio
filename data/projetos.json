@@ -96,7 +96,12 @@
           "device": "desktop",
           "alt": "Captura real do Gestão de Obras v0.4.10: Notificações e prazos"
         }
-      ]
+      ],
+      "icon": "assets/img/gestao-obras/icone.webp",
+      "coverImage": "",
+      "coverFit": "contain",
+      "coverRatio": "original",
+      "coverPosition": "center"
     },
     {
       "id": "projeto-questoes",
@@ -178,5 +183,6 @@
         }
       ]
     }
-  ]
+  ],
+  "featuredId": "gestao-obras"
 }

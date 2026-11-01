@@ -340,3 +340,6 @@ main, footer { position: relative; z-index: 1; }
 .detail-links .button {font-size:12px;}
 @media(max-width:800px){.future-card{grid-template-columns:1fr;}.future-card>img{min-height:0;height:auto;aspect-ratio:16/9;}.future-card-content{padding:25px;}.project-dialog-body{padding:16px;}.project-dialog-head{padding:14px 16px;}.detail-picture{min-height:190px;}.detail-picture img{max-height:300px;}.detail-features{grid-template-columns:1fr;}}
 @media(max-width:380px){.future-card-actions .button{font-size:10px;}.detail-thumbnails button{flex-basis:100px;}}
+
+/* Editor v3: iniciais para qualquer projeto em destaque */
+.project-logo b{display:grid;place-items:center;min-width:38px;min-height:38px;font-size:14px;font-weight:800;color:#eaf5ff;letter-spacing:.04em;background:linear-gradient(130deg,#1761d1,#118f83);border-radius:11px}

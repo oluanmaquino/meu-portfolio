@@ -1,0 +1,189 @@
+/* Gerado pelo editor visual. Nao altere manualmente. */
+window.PORTFOLIO_CATALOG = {
+  "projects": [
+    {
+      "id": "gestao-obras",
+      "name": "Gestão de Obras",
+      "abbreviation": "GO",
+      "category": "Engenharia e automação de processos",
+      "status": "Em desenvolvimento",
+      "version": "0.4.10",
+      "eyebrow": "SOFTWARE LOCAL · WINDOWS · VERSÃO 0.4.10",
+      "tagline": "Processos, tarefas e documentos em um só lugar.",
+      "summary": "Sistema local para acompanhamento de processos de construção civil, com etapas configuráveis, central de atividades, gestão documental e calendário.",
+      "description": "Aplicação desenvolvida para organizar fluxos de trabalho da engenharia e reduzir tarefas repetitivas. Inclui painel de acompanhamento, processos por etapa, controle de pendências, documentos anexados, alertas de prazos e geradores de documentos editáveis. A versão 0.4.10 utiliza servidor Node.js local com banco SQLite e possui inicializador para Windows com janela independente.",
+      "technologies": [
+        "JavaScript",
+        "Node.js",
+        "SQLite",
+        "HTML5",
+        "CSS3",
+        "Windows"
+      ],
+      "features": [
+        {
+          "title": "Processos e etapas",
+          "description": "Oito etapas configuráveis, tarefas e acompanhamento de status."
+        },
+        {
+          "title": "Painel e calendário",
+          "description": "Indicadores, distribuição de pendências e calendário de serviços."
+        },
+        {
+          "title": "Central de atividades",
+          "description": "Tarefas pendentes organizadas por processos e etapas."
+        },
+        {
+          "title": "Documentos e requerimentos",
+          "description": "Anexos por etapa e geradores de arquivos editáveis."
+        },
+        {
+          "title": "Prazos e notificações",
+          "description": "Alertas para acompanhar datas de vencimento."
+        },
+        {
+          "title": "Execução local",
+          "description": "Servidor Node.js e inicializador Windows em janela independente."
+        }
+      ],
+      "urls": {},
+      "images": [
+        {
+          "src": "assets/img/gestao-obras/dashboard.webp",
+          "label": "Visão geral e indicadores",
+          "caption": "Dashboard · distribuição de pendências, métricas e calendário",
+          "device": "desktop",
+          "alt": "Captura real do Gestão de Obras v0.4.10: Visão geral e indicadores"
+        },
+        {
+          "src": "assets/img/gestao-obras/processos.webp",
+          "label": "Lista de processos",
+          "caption": "Pesquisa, filtros, status e ações dos processos",
+          "device": "desktop",
+          "alt": "Captura real do Gestão de Obras v0.4.10: Lista de processos"
+        },
+        {
+          "src": "assets/img/gestao-obras/etapas-documentos.webp",
+          "label": "Etapas e documentos",
+          "caption": "Etapas de construção, tarefas e anexos por fase",
+          "device": "desktop",
+          "alt": "Captura real do Gestão de Obras v0.4.10: Etapas e documentos"
+        },
+        {
+          "src": "assets/img/gestao-obras/atividades.webp",
+          "label": "Central de atividades",
+          "caption": "Pendências organizadas por processo e etapa",
+          "device": "desktop",
+          "alt": "Captura real do Gestão de Obras v0.4.10: Central de atividades"
+        },
+        {
+          "src": "assets/img/gestao-obras/modelos.webp",
+          "label": "Modelos de processos",
+          "caption": "Configuração de etapas e listas de tarefas e documentos",
+          "device": "desktop",
+          "alt": "Captura real do Gestão de Obras v0.4.10: Modelos de processos"
+        },
+        {
+          "src": "assets/img/gestao-obras/geradores.webp",
+          "label": "Geradores de documentos",
+          "caption": "Documentos editáveis e requerimentos para a obra",
+          "device": "desktop",
+          "alt": "Captura real do Gestão de Obras v0.4.10: Geradores de documentos"
+        },
+        {
+          "src": "assets/img/gestao-obras/notificacoes.webp",
+          "label": "Notificações e prazos",
+          "caption": "Alertas de vencimento integrados ao painel",
+          "device": "desktop",
+          "alt": "Captura real do Gestão de Obras v0.4.10: Notificações e prazos"
+        }
+      ],
+      "icon": "assets/img/gestao-obras/icone.webp",
+      "coverImage": "",
+      "coverFit": "contain",
+      "coverRatio": "original",
+      "coverPosition": "center"
+    },
+    {
+      "id": "projeto-questoes",
+      "name": "Projeto Questões",
+      "abbreviation": "PQ",
+      "category": "Educação e tecnologia",
+      "status": "Publicado",
+      "eyebrow": "PLATAFORMA WEB · PROJETO EM FUNCIONAMENTO",
+      "tagline": "Praticar. Revisar. Evoluir.",
+      "summary": "Plataforma de estudos para concursos públicos, com questões organizadas por disciplina, simulados, flashcards e acompanhamento de desempenho.",
+      "description": "O Projeto Questões (PQ) é uma plataforma web responsiva que reúne ferramentas para praticar e revisar conteúdos. A área de estudos disponibiliza questões, acompanhamento de respostas e indicadores de desempenho; a área de administração permite organizar o banco de questões e seus conteúdos.",
+      "technologies": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "JSON"
+      ],
+      "features": [
+        {
+          "title": "Banco de questões",
+          "description": "Organização por disciplinas, assuntos e formatos de resposta."
+        },
+        {
+          "title": "Desempenho do estudante",
+          "description": "Indicadores de respostas, acertos e aproveitamento."
+        },
+        {
+          "title": "Simulados e flashcards",
+          "description": "Recursos para prática e revisão dos conteúdos."
+        },
+        {
+          "title": "Gerenciamento de conteúdo",
+          "description": "Busca, filtros, cadastro e manutenção de questões."
+        },
+        {
+          "title": "Experiência responsiva",
+          "description": "Interface adaptada para celulares e computadores."
+        }
+      ],
+      "urls": {
+        "live": "https://oluanmaquino.github.io/ProjetoQuestoes/",
+        "repository": "https://github.com/oluanmaquino/ProjetoQuestoes"
+      },
+      "images": [
+        {
+          "src": "assets/img/projeto-questoes/desktop-banco.webp",
+          "label": "Banco de questões",
+          "caption": "Área administrativa · banco de questões, busca e filtros",
+          "device": "desktop",
+          "alt": "Captura real do Projeto Questões no computador, mostrando o banco de questões e a área administrativa"
+        },
+        {
+          "src": "assets/img/projeto-questoes/desktop-dashboard.webp",
+          "label": "Painel de desempenho",
+          "caption": "Área de estudos · indicadores e histórico do aluno",
+          "device": "desktop",
+          "alt": "Captura real do dashboard desktop do Projeto Questões com indicadores de desempenho"
+        },
+        {
+          "src": "assets/img/projeto-questoes/mobile-dashboard.webp",
+          "label": "Dashboard no celular",
+          "caption": "Visão geral · experiência para dispositivos móveis",
+          "device": "mobile",
+          "alt": "Captura real da visão geral mobile do Projeto Questões, com indicadores e desempenho por disciplina"
+        },
+        {
+          "src": "assets/img/projeto-questoes/mobile-questoes.webp",
+          "label": "Prática de questões",
+          "caption": "Resolução de questões · alternativas e ação para conferir resposta",
+          "device": "mobile",
+          "alt": "Captura real do Projeto Questões no celular, com questão de informática e alternativas A a E"
+        },
+        {
+          "src": "assets/img/projeto-questoes/mobile-menu.webp",
+          "label": "Navegação mobile",
+          "caption": "Menu lateral · módulos de estudo e administração",
+          "device": "mobile",
+          "alt": "Captura real do menu lateral mobile do Projeto Questões mostrando os módulos da plataforma"
+        }
+      ]
+    }
+  ],
+  "featuredId": "gestao-obras"
+};

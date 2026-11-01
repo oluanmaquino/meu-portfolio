@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#0b1019">
-  <meta name="description" content="Portfólio de Luan Aquino, Desenvolvedor de Sistemas e Tecnólogo em Análise e Desenvolvimento de Sistemas pela UNIFRAN. Conheça Gestão de Obras e Projeto Questões.">
+  <meta name="description" content="Portfólio de Luan Aquino, Desenvolvedor de Sistemas. Conheça Gestão de Obras, Projeto Questões.">
   <meta name="author" content="Luan Aquino">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Luan Aquino | Desenvolvedor de Sistemas">
-  <meta property="og:description" content="Conheça meus projetos e soluções digitais. Em destaque: Gestão de Obras e Projeto Questões, sistemas para engenharia e educação.">
+  <meta property="og:description" content="Portfólio de Luan Aquino, Desenvolvedor de Sistemas. Conheça Gestão de Obras, Projeto Questões.">
   <meta property="og:image" content="assets/img/og-preview.png">
   <meta name="twitter:card" content="summary_large_image">
   <title>Luan Aquino — Desenvolvedor de Sistemas | Portfólio</title>
@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/v4.css">
   <!-- Aplica o tema ANTES do primeiro desenho, evitando piscar cores erradas. -->
   <script>
     (function () {
@@ -32,6 +33,12 @@
       } catch (_) { document.documentElement.dataset.theme = 'dark'; }
     }());
   </script>
+  <script src="js/site-data.js" defer></script>
+  <script src="js/tech-library.js" defer></script>
+  <script src="js/enhancements.js" defer></script>
+  <script src="js/profile-data.js" defer></script>
+  <script src="js/profile.js" defer></script>
+  <script src="js/projects-data.js" defer></script>
   <script src="js/projects.js" defer></script>
   <script src="js/animations.js" defer></script>
   <script src="js/theme.js" defer></script>
@@ -173,7 +180,7 @@
           <div><div class="section-kicker"><span>02 / PROJETOS</span></div><h2 id="work-title">Projetos com <span class="gradient-text">aplicação real.</span></h2><p>Conheça sistemas desenvolvidos para necessidades concretas, da gestão de obras à preparação para concursos.</p></div>
           <span class="project-count"><span class="project-count-dot"></span><span id="project-total">02 PROJETOS NO PORTFÓLIO</span></span>
         </div>
-        <article class="showcase reveal" aria-label="Gestão de Obras — projeto principal">
+        <article id="featured-showcase" class="showcase reveal" aria-label="Projeto em destaque">
           <div class="showcase-image">
             <div class="showcase-browser-bar"><div class="window-dots"><span></span><span></span><span></span></div><span>Gestão de Obras · aplicação local Windows</span><svg class="icon"><use href="#i-monitor"/></svg></div>
             <img src="assets/img/gestao-obras/dashboard.webp" alt="Captura real do painel da versão 0.4.10 do Gestão de Obras" width="1920" height="1030" fetchpriority="high">
@@ -189,20 +196,20 @@
             <div class="showcase-actions"><a class="button button-primary" href="#galeria">Explorar as telas <svg class="icon"><use href="#i-arrow"/></svg></a><span class="project-private"><svg class="icon"><use href="#i-monitor"/></svg> Aplicação local · sem demonstração pública</span></div>
           </div>
         </article>
-        <div class="feature-grid reveal" aria-label="Funcionalidades do Gestão de Obras">
+        <div id="featured-features" class="feature-grid reveal" aria-label="Funcionalidades do Gestão de Obras">
           <div class="feature-card"><span class="feature-icon"><svg class="icon"><use href="#i-layers"/></svg></span><h4>Processos e etapas</h4><p>Oito etapas configuráveis, tarefas e status de acompanhamento.</p></div>
           <div class="feature-card"><span class="feature-icon"><svg class="icon"><use href="#i-chart"/></svg></span><h4>Visão geral</h4><p>Indicadores, pendências, notificações e calendário.</p></div>
           <div class="feature-card"><span class="feature-icon"><svg class="icon"><use href="#i-check"/></svg></span><h4>Atividades</h4><p>Pendências agrupadas por processo e por etapa.</p></div>
           <div class="feature-card"><span class="feature-icon"><svg class="icon"><use href="#i-database"/></svg></span><h4>Documentos</h4><p>Anexos por etapa e geradores de documentos editáveis.</p></div>
         </div>
         <div class="gallery-section reveal" id="galeria">
-          <div class="gallery-heading"><div><div class="section-kicker"><span>GESTÃO DE OBRAS · V0.4.10</span></div><h3>Veja o sistema <span>por dentro.</span></h3><p>Sete capturas reais do programa, com nomes de clientes ocultados para preservar a privacidade.</p></div><div class="gallery-switch" role="group" aria-label="Filtrar imagens por dispositivo"><button type="button" class="gallery-filter is-selected" data-device="all" aria-pressed="true">Todas</button><button type="button" class="gallery-filter" data-device="desktop" aria-pressed="false"><svg class="icon"><use href="#i-monitor"/></svg> Computador</button></div></div>
+          <div class="gallery-heading"><div><div class="section-kicker"><span>GESTÃO DE OBRAS · V0.4.10</span></div><h3>Veja o sistema <span>por dentro.</span></h3><p>Sete capturas reais do programa, com nomes de clientes ocultados para preservar a privacidade.</p></div><div class="gallery-switch" role="group" aria-label="Filtrar imagens por dispositivo"><button type="button" class="gallery-filter is-selected" data-device="all" aria-pressed="true">Todas</button><button type="button" class="gallery-filter" data-device="desktop" aria-pressed="false"><svg class="icon"><use href="#i-monitor"/></svg> Computador</button><button type="button" class="gallery-filter" data-device="mobile" aria-pressed="false"><svg class="icon"><use href="#i-smartphone"/></svg> Celular</button></div></div>
           <div class="gallery-viewer" id="gallery-viewer" aria-live="polite"><div class="gallery-empty">Preparando galeria de imagens…</div></div>
           <div class="gallery-thumbnails" id="gallery-thumbnails" aria-label="Selecionar imagem da galeria"></div>
           <div class="gallery-foot"><span id="gallery-counter">07 capturas reais · Desktop</span><button type="button" class="text-link gallery-expand" id="gallery-expand"><svg class="icon"><use href="#i-expand"/></svg> Ampliar imagem</button></div>
         </div>
         <div id="future-projects" class="future-projects" hidden>
-          <div class="section-heading"><div><div class="section-kicker"><span>PLATAFORMA WEB · EDUCAÇÃO</span></div><h3>Projeto Questões <span class="gradient-text">(PQ).</span></h3></div></div>
+          <div class="section-heading"><div><div class="section-kicker"><span>OUTROS SISTEMAS · PORTFÓLIO</span></div><h3>Outros <span class="gradient-text">projetos.</span></h3></div></div>
           <div class="future-search"><label for="project-search">Pesquisar projetos</label><div class="search-wrapper"><svg class="icon"><use href="#i-search"/></svg><input id="project-search" type="search" placeholder="Pesquisar por projeto, tecnologia ou categoria"></div></div>
           <div class="future-grid" id="future-project-list"></div>
           <p class="empty-projects" id="project-empty" hidden>Nenhum projeto corresponde à pesquisa.</p>
@@ -213,14 +220,7 @@
     <section class="section section-tech" id="tecnologias" aria-labelledby="tech-title">
       <div class="container tech-grid">
         <div class="section-intro reveal"><div class="section-kicker"><span>03 / TECNOLOGIAS</span></div><h2 id="tech-title">Ferramentas que dão <span class="gradient-text">vida às ideias.</span></h2><p>Tecnologias utilizadas nos sistemas apresentados e na estrutura deste portfólio.</p></div>
-        <div class="technology-cards reveal">
-          <div class="tech-card"><span class="tech-initial tech-html">&lt;&gt;</span><div><strong>HTML5</strong><span>Estrutura e semântica</span></div><span class="tech-caret">↗</span></div>
-          <div class="tech-card"><span class="tech-initial tech-css">#</span><div><strong>CSS3</strong><span>Estilos e responsividade</span></div><span class="tech-caret">↗</span></div>
-          <div class="tech-card"><span class="tech-initial tech-js">JS</span><div><strong>JavaScript</strong><span>Interatividade no navegador</span></div><span class="tech-caret">↗</span></div>
-          <div class="tech-card"><span class="tech-initial tech-json">{ }</span><div><strong>JSON</strong><span>Organização de dados</span></div><span class="tech-caret">↗</span></div>
-          <div class="tech-card"><span class="tech-initial tech-js">N</span><div><strong>Node.js</strong><span>Serviços e lógica local</span></div><span class="tech-caret">↗</span></div>
-          <div class="tech-card"><span class="tech-initial tech-json">DB</span><div><strong>SQLite</strong><span>Persistência local de dados</span></div><span class="tech-caret">↗</span></div>
-        </div>
+        <div class="technology-cards reveal" id="skills-list" aria-label="Tecnologias selecionadas"></div>
       </div>
     </section>
 
@@ -232,7 +232,7 @@
     </section>
 
     <section class="section section-contact" id="contato" aria-labelledby="contact-title">
-      <div class="container"><div class="contact-panel reveal"><div class="contact-orb" aria-hidden="true"></div><div class="section-kicker"><span>05 / CONTATO</span></div><h2 id="contact-title">Tem uma ideia?<br><span class="gradient-text">Vamos conversar.</span></h2><p>Quer entrar em contato sobre tecnologia, projetos ou desenvolvimento de sistemas? Escolha um dos canais abaixo.</p><div class="contact-cta"><a class="button button-primary" href="mailto:luanaquino2002@outlook.com?subject=Contato%20pelo%20portf%C3%B3lio">Enviar e-mail <svg class="icon"><use href="#i-arrow"/></svg></a><a class="button button-outline" href="https://wa.me/5538997411938?text=Ol%C3%A1%2C%20Luan%21%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-phone"/></svg> WhatsApp</a></div><div class="contact-links"><a href="https://github.com/oluanmaquino" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github"/></svg> GitHub <svg class="icon outgoing"><use href="#i-external"/></svg></a><a href="https://www.instagram.com/luanm.aquino/" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-instagram"/></svg> Instagram <svg class="icon outgoing"><use href="#i-external"/></svg></a><button type="button" id="copy-email" data-email="luanaquino2002@outlook.com" aria-label="Copiar e-mail luanaquino2002@outlook.com"><svg class="icon"><use href="#i-copy"/></svg> <span id="copy-label">Copiar e-mail</span></button></div></div></div>
+      <div class="container"><div class="contact-panel reveal"><div class="contact-orb" aria-hidden="true"></div><div class="section-kicker"><span>05 / CONTATO</span></div><h2 id="contact-title">Tem uma ideia?<br><span class="gradient-text">Vamos conversar.</span></h2><p>Quer entrar em contato sobre tecnologia, projetos ou desenvolvimento de sistemas? Escolha um dos canais abaixo.</p><div class="contact-cta"><a class="button button-primary" href="mailto:luanaquino2002@outlook.com?subject=Contato%20pelo%20portf%C3%B3lio">Enviar e-mail <svg class="icon"><use href="#i-arrow"/></svg></a><a class="button button-outline" href="https://wa.me/5538997411938?text=Ol%C3%A1%2C%20Luan%21%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-phone"/></svg> WhatsApp</a></div><div class="contact-links" id="social-links"><button type="button" id="copy-email" data-email="luanaquino2002@outlook.com" aria-label="Copiar e-mail luanaquino2002@outlook.com"><svg class="icon"><use href="#i-copy"/></svg> <span id="copy-label">Copiar e-mail</span></button></div><div class="audio-widget" id="audio-widget" hidden><div class="audio-widget-title"><svg class="icon"><use href="#i-code"/></svg> Trilha sonora <span id="audio-status">Aguardando ativação</span></div><div class="audio-widget-actions"><button type="button" class="button button-outline" id="audio-toggle">Ativar som</button><button type="button" class="button button-outline" id="audio-mute" aria-label="Silenciar música" disabled>Silenciar</button><label for="audio-volume">Volume <input type="range" id="audio-volume" min="0" max="1" step="0.05" value="0.22"></label></div><p>O som só começa após sua autorização. A música tocará nas áreas selecionadas.</p><audio id="background-audio" preload="none"></audio></div></div></div>
     </section>
   </main>
 
@@ -242,7 +242,7 @@
   <dialog class="lightbox" id="lightbox" aria-label="Visualizador ampliado das capturas do Gestão de Obras">
     <div class="lightbox-top"><span class="lightbox-title" id="lightbox-title">Captura do sistema</span><button type="button" class="icon-button" id="lightbox-close" aria-label="Fechar imagem ampliada"><svg class="icon"><use href="#i-x"/></svg></button></div>
     <div class="lightbox-picture"><button type="button" class="lightbox-control" id="lightbox-prev" aria-label="Imagem anterior"><svg class="icon"><use href="#i-left"/></svg></button><img id="lightbox-image" alt="" src="assets/img/gestao-obras/dashboard.webp" width="1920" height="1030"><button type="button" class="lightbox-control" id="lightbox-next" aria-label="Próxima imagem"><svg class="icon"><use href="#i-right"/></svg></button></div>
-    <div class="lightbox-bottom"><span id="lightbox-caption"></span><span id="lightbox-position"></span></div>
+    <div class="lightbox-bottom"><span id="lightbox-caption"></span><span id="lightbox-position"></span><a id="lightbox-original" href="#" target="_blank" rel="noopener noreferrer">Abrir imagem original ↗</a></div>
   </dialog>
 
   <!-- Detalhes de outros projetos: galeria real + links apenas quando públicos. -->
@@ -253,7 +253,7 @@
       <div id="detail-tags" class="tag-row"></div>
       <div class="project-dialog-gallery">
         <div class="detail-picture"><button class="detail-nav" id="detail-prev" type="button" aria-label="Imagem anterior"><svg class="icon"><use href="#i-left"/></svg></button><img id="detail-image" src="assets/img/projeto-questoes/desktop-banco.webp" alt="Captura do projeto" width="1920" height="1080"><button class="detail-nav" id="detail-next" type="button" aria-label="Próxima imagem"><svg class="icon"><use href="#i-right"/></svg></button></div>
-        <div class="detail-caption"><span id="detail-image-label"></span><span id="detail-counter"></span></div>
+        <div class="detail-caption"><span id="detail-image-label"></span><span id="detail-counter"></span><a id="detail-original" href="#" target="_blank" rel="noopener noreferrer">Abrir original ↗</a></div>
         <div class="detail-thumbnails" id="detail-thumbnails" aria-label="Imagens do projeto"></div>
       </div>
       <div id="detail-features" class="detail-features"></div>
