@@ -18,7 +18,6 @@ function apply(p){if(!p)return;
   const email=(p.email||'').trim(),whats=(p.whatsapp||'').replace(/\D/g,'');
   const emailBtn=one('.contact-cta a[href^="mailto:"]');if(emailBtn){emailBtn.hidden=!email;emailBtn.href=email?'mailto:'+encodeURIComponent(email)+'?subject=Contato%20pelo%20portf%C3%B3lio':'#contato'}
   const phoneBtn=one('.contact-cta a[href*="wa.me/"]');if(phoneBtn){phoneBtn.hidden=!whats;phoneBtn.href=whats?'https://wa.me/'+whats+'?text='+encodeURIComponent('Olá! Vi seu portfólio e gostaria de conversar.'):'#contato'}
-  const copy=one('#copy-email');if(copy){copy.hidden=!email;copy.dataset.email=email;copy.setAttribute('aria-label','Copiar e-mail '+email)}
   const meta=one('meta[name="author"]');if(meta)meta.content=p.name||'';
 }
 const fallback=window.PORTFOLIO_PROFILE;

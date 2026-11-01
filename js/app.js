@@ -63,20 +63,6 @@
     toast.classList.add('is-visible');
     toastTimer = setTimeout(function () { toast.classList.remove('is-visible'); }, 2900);
   }
-  $('#copy-email').addEventListener('click', async function () {
-    const email = this.dataset.email;
-    try {
-      if (!navigator.clipboard || !window.isSecureContext) throw new Error('Clipboard indisponível');
-      await navigator.clipboard.writeText(email);
-      $('#copy-label').textContent = 'E-mail copiado!';
-      announce('E-mail copiado para a área de transferência.');
-      setTimeout(function () { $('#copy-label').textContent = 'Copiar e-mail'; }, 2300);
-    } catch (_) {
-      // Sem permissão de clipboard, entrega o endereço para seleção manual.
-      announce('E-mail para copiar: ' + email);
-      $('#copy-label').textContent = email;
-    }
-  });
 
   // Galeria principal: 7 capturas reais do Gestão de Obras, fornecidas pelo autor.
   let allImages = [];

@@ -3,6 +3,7 @@
   'use strict';
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const revealNodes = Array.from(document.querySelectorAll('.reveal'));
+  // Observa tanto no desktop quanto no celular: animações dependem de visibilidade real.
   if (!reducedMotion.matches && 'IntersectionObserver' in window) {
     document.documentElement.classList.add('has-reveal');
     const io = new IntersectionObserver(function (entries) {
@@ -12,7 +13,7 @@
           io.unobserve(entry.target);
         }
       });
-    }, {rootMargin: '0px 0px 40px 0px', threshold: 0.07});
+    }, {rootMargin: '0px 0px -12px 0px', threshold: 0.12});
     revealNodes.forEach(function (element) { io.observe(element); });
     // Evita elementos invisíveis nos navegadores que atrasam o observer.
     requestAnimationFrame(function () {
@@ -43,10 +44,10 @@
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const quantity = smallScreen.matches ? 13 : 28;
+    const quantity = smallScreen.matches ? 13 : 43;
     particles = Array.from({length: quantity}, function () {
       return {x: Math.random() * width, y: Math.random() * height,
-        vx: (Math.random() - .5) * .33, vy: (Math.random() - .5) * .33,
+        vx: (Math.random() - .5) * (smallScreen.matches ? .35 : .62), vy: (Math.random() - .5) * (smallScreen.matches ? .35 : .62),
         radius: .6 + Math.random() * 1.2};
     });
   }

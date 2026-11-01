@@ -1,14 +1,14 @@
 /* Gerado pelo editor visual. */
 window.PORTFOLIO_SITE = {
-  "version": 4,
+  "version": 5,
   "audio": {
     "enabled": true,
-    "src": "assets/audio/1793574238730-redes-sociais.mp3",
+    "src": "assets/audio/1793575753554-redes-sociais.mp3",
     "mode": "sections",
     "sections": [
       "contato"
     ],
-    "volume": 0.25,
+    "volume": 0.3,
     "loop": true
   },
   "socials": [
@@ -26,6 +26,11 @@ window.PORTFOLIO_SITE = {
       "id": "tiktok",
       "url": "https://www.tiktok.com/@oluanaquiino",
       "enabled": true
+    },
+    {
+      "id": "whatsapp",
+      "url": "http://wa.me//5538997411938",
+      "enabled": true
     }
   ],
   "skills": [
@@ -34,6 +39,12 @@ window.PORTFOLIO_SITE = {
     "JavaScript",
     "JSON",
     "Node.js",
-    "SQLite"
+    "SQLite",
+    "C++",
+    "Python",
+    "GitHub",
+    "Git",
+    "Windows",
+    "MySQL"
   ]
 };

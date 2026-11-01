@@ -42,3 +42,28 @@ html[data-theme=dark] {--social-filter:invert(1);}
 @media(prefers-reduced-motion:no-preference) and (min-width:801px){ .code-window:hover{transform:translateY(-4px);box-shadow:0 22px 65px rgba(24,111,210,.22);transition:transform .3s ease,box-shadow .3s ease;} }
 
 #lightbox-original,#detail-original{font-size:11px;font-weight:700;color:var(--blue);white-space:nowrap;}#lightbox-original{color:#b2d3ff}.detail-caption{flex-wrap:wrap}.lightbox-bottom{flex-wrap:wrap}
+
+/* v5: botão WhatsApp com SVG da rede e controle de áudio sem painel de início */
+.contact-whatsapp-icon {display:inline-block;width:21px;height:21px;object-fit:contain;vertical-align:middle;flex:none;filter:var(--social-filter,none)}
+.site-mute-toggle {display:inline-grid;place-items:center;flex:none;}
+.site-mute-toggle[hidden] {display:none!important;}
+.site-mute-toggle[aria-pressed="true"] {color:var(--muted);}
+@media(prefers-reduced-motion:no-preference) and (min-width:951px){
+ .hero .code-stage {animation:hero-entry 900ms .20s both;}
+ .code-window {animation:desktop-float 6.5s ease-in-out 1s infinite!important;transition:box-shadow .3s ease;}
+ .code-backdrop {animation:desktop-glow 7s ease-in-out infinite;}
+ .floating-token.token-top {animation:float-label 4.5s ease-in-out infinite alternate;}
+ .floating-token.token-bottom {animation:float-label 5s ease-in-out -1.8s infinite alternate-reverse;}
+ .hero-copy > :is(h1,.hero-description,.hero-actions,.hero-meta){animation:hero-entry .8s both;}
+ .hero-copy > h1{animation-delay:.12s}.hero-copy > .hero-description{animation-delay:.24s}
+ .hero-copy > .hero-actions{animation-delay:.36s}.hero-copy > .hero-meta{animation-delay:.44s}
+ .section-intro.reveal, .section-heading.reveal {transition-duration:.82s;}
+ .feature-card, .tech-card, .gallery-thumb, .contact-links a {transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;}
+ .feature-card:hover,.tech-card:hover {transform:translateY(-7px)!important;box-shadow:0 14px 35px rgba(32,112,202,.13);}
+ .gallery-thumb:hover{transform:translateY(-3px)}
+ @keyframes desktop-float {0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+ @keyframes desktop-glow {0%,100%{opacity:.7;filter:brightness(1)}50%{opacity:1;filter:brightness(1.35)}}
+ @keyframes float-label {from{transform:translateY(0)}to{transform:translateY(-9px)}}
+ @keyframes hero-entry {from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+}
+@media(prefers-reduced-motion:reduce){.code-window,.code-backdrop,.floating-token,.hero-copy > *, .code-stage {animation:none!important;}}
